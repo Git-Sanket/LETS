@@ -1,0 +1,46 @@
+
+From the following tables write a query to find the salesperson and customer who reside in the same city. Return Salesman, cust_name and city
+
+ salesman_id |    name    |   city   | commission 
+-------------+------------+----------+------------
+        5001 | James Hoog | New York |       0.15
+        5002 | Nail Knite | Paris    |       0.13
+        5005 | Pit Alex   | London   |       0.11
+        5006 | Mc Lyon    | Paris    |       0.14
+        5007 | Paul Adam  | Rome     |       0.13
+        5003 | Lauson Hen | San Jose |       0.12
+
+customer_id |   cust_name    |    city    | grade | salesman_id 
+-------------+----------------+------------+-------+-------------
+        3002 | Nick Rimando   | New York   |   100 |        5001
+        3007 | Brad Davis     | New York   |   200 |        5001
+        3005 | Graham Zusi    | California |   200 |        5002
+        3008 | Julian Green   | London     |   300 |        5002
+        3004 | Fabian Johnson | Paris      |   300 |        5006
+        3009 | Geoff Cameron  | Berlin     |   100 |        5003
+        3003 | Jozy Altidor   | Moscow     |   200 |        5007
+        3001 | Brad Guzan     | London     |       |        5005
+        
+  Creating table
+  use bootcamp;
+create table sales 
+(
+  salesman_id int ,
+  name varchar(255),
+  city varchar(255),
+  commission float 
+);
+INSERT into customer VALUES(3002,'Nick Rimando','New York',100,5001);
+INSERT into customer VALUES(3007,'Brad Davis','New York',200,5001);
+INSERT into customer VALUES(3005,'Graham Zusi','California',200,5002);
+INSERT into customer VALUES(3008,'Julia Green','London',300,5002);
+INSERT into customer VALUES(3004,'Fabian Jhonson','Paris',300,5006);
+INSERT into customer VALUES(3009,'Geoff Cameron','Berlin',100,5003);
+INSERT into customer VALUES(3003,'Jozy Altidor','Moscow',NULL,5007);
+INSERT into customer VALUES(3001,'Brad Guzan','London',NULL,5005);
+        
+      ANSWER QUERY - 
+     SELECT sales.name AS "Salesman",
+     customer.cust_name, customer.city 
+     FROM sales,customer 
+     WHERE sales.city=customer.city;
