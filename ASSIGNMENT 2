@@ -1,0 +1,23 @@
+use bootcamp;
+create table students 
+(
+    id int primary key ,
+    name varchar(255),
+    age int ,
+    gender varchar(255)
+) ;
+
+INSERT INTO students 
+VALUES(4,'NEELMA',19,'FEMALE');
+
+--1
+SELECT * FROM students ;
+--2
+UPDATE students SET name='Janet'
+where id=2;
+
+--3
+DELETE FROM students 
+WHERE id=3;
+--4
+SELECT * FROM students ;
